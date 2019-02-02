@@ -1,0 +1,42 @@
+{
+  "name": "fema-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": {
+    "name": "none"
+  },
+  "scripts": {
+    "start": "npm run -s watch & npm run -s livereload",
+    "watch": "npx webpack --watch",
+    "livereload": "npx livereload resources/dist",
+    "build": "npx webpack",
+    "compile": "npx webpack"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^8.0.4",
+    "babel-preset-env": "^1.6.1",
+    "chalk": "^2.3.2",
+    "css-loader": "^0.28.10",
+    "doiuse": "^4.2.0",
+    "dotenv-webpack": "^1.5.5",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "livereload": "^0.7.0",
+    "npx": "^10.2.0",
+    "postcss-loader": "^2.1.1",
+    "webpack": "^3",
+    "webpack-cli": "^2.0.10",
+    "webpack-livereload-plugin": "^1.0.0"
+  },
+  "dependencies": {
+    "node-sass": "^4.11.0",
+    "normalize.css": "^8.0.0",
+    "sass-loader": "^7.1.0"
+  }
+}
