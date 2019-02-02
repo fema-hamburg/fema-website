@@ -1,0 +1,32 @@
+email:
+  fromEmail: ddd@dkghjakdfdkjshrfoiaregjh.com
+  fromName: 'Fema Web'
+  transportType: craft\mail\transportadapters\Sendmail
+fieldGroups:
+  68447509-7981-42c5-97a2-e47a0294d201:
+    name: Common
+siteGroups:
+  d7a3e58e-47ea-4105-bf13-5a636404ecd9:
+    name: 'Fema Web'
+sites:
+  efb6198e-3252-491a-ab9e-aaa06ec3507f:
+    baseUrl: $DEFAULT_SITE_URL
+    handle: default
+    hasUrls: true
+    language: de
+    name: 'Fema Web'
+    primary: true
+    siteGroup: d7a3e58e-47ea-4105-bf13-5a636404ecd9
+    sortOrder: 1
+system:
+  edition: solo
+  live: true
+  name: 'Fema Web'
+  schemaVersion: 3.1.23
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: ''
+  photoVolumeUid: null
+  requireEmailVerification: true
