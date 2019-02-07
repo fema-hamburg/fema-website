@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "flexboxgrid-sass": "^8.0.5",
+    "jeet": "^7.2.0",
     "node-sass": "^4.11.0",
     "normalize.css": "^8.0.0",
     "sass-loader": "^7.1.0"
