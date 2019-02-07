@@ -403,7 +403,7 @@ body {
   font-size: 16px;
   font-family: 'Roboto Condensed', sans-serif;
   color: #242424;
-  background: white;
+  background: hotpink;
   -webkit-font-smoothing: antialiased; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -412,16 +412,16 @@ h1, h2, h3, h4, h5, h6 {
 
 ::-moz-selection {
   background: #242424;
-  color: white;
+  color: hotpink;
   text-shadow: none; }
 
 ::selection {
   background: #242424;
-  color: white;
+  color: hotpink;
   text-shadow: none; }
 
 a {
-  color: white;
+  color: hotpink;
   text-decoration: underline; }
   a:hover {
     text-decoration: underline; }
