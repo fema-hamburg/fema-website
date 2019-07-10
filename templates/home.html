@@ -1,0 +1,128 @@
+<!doctype html>
+  <html>
+   <head>
+    <meta charset="utf-8">
+    <meta name="author" content="AUKOS GmbH">
+    <meta name="description" content="{% if description is defined %}{{description}}{% endif %}">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>{% if title is defined %}{{title}}{% endif %} | {{siteName}}</title>
+    <link rel="stylesheet" href="{{siteUrl}}resources/dist/styles.css">
+    {% block head %}
+
+    {% endblock %}
+   </head>
+
+   <body>
+    <section>
+      <aside>
+        <nav class="side-nav">
+            <h1 class="logo-replacement">FemA Hamburg</h1>
+            <ul class="side-nav-main-navigation">
+              <li><a href="#">Terminkalender</a></li>
+              <li><a href="#">Literaturliste</a></li>
+              <li><a href="#">Über uns</a></li>
+            </ul>
+            <div class="side-short-info">
+              <h2>Wichtige Termine</h2>
+              {% set myEntryQuery = craft.entries.section('events').orderBy('startingDate asc') %}
+              {% set entries = myEntryQuery.limit(2) %}
+              {% set displayDate = false %}
+              {% for entry in entries %}
+              <div class="side-short-info-details"> <!--remove element here-->
+                <div class="side-short-info-date">
+                  {{ entry.startingDate|date("M") }}
+                    <strong>
+                      {{ entry.startingDate|date("d")}}
+                    </strong>
+                </div>
+                <div class="side-short-info-date-details">
+                  <h4>{{ entry.title }}</h4>
+                  <div class="side-short-info-time">
+                    {{ entry.startingDate|date("H:i") }} -
+                    {{ entry.endingDate|date("H:i") }}
+                  </div>
+                  <div class="side-short-info-location">
+                    {{ entry.eventLocation }}<br>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+        </nav>
+      </aside>
+      <main>
+          <h2 class="calendar-heading">Terminkalender</h2>
+          <h3 class="navigation-categories-headline">Kategorien</h3>
+            <nav>
+              {% set myCategoryQuery = craft.categories().group('meetingCategories') %}
+              {% set categories = myCategoryQuery.all() %}
+                <ul class="categories-navigation">
+                  <li {%- if slug is not defined %} class="active"{% endif %}>
+                    <a href="/">Alle</a>
+                  </li>
+                  {% nav category in categories %}
+                    <li {%- if slug is defined and category.slug == slug %} class="active"{% endif %}>
+                      <a href="/category/{{ category.slug }}">{{ category.title }}</a>
+                    </li>
+                  {% endnav %}
+                </ul>
+            </nav>
+            {% if slug is defined %}
+              {% set category = craft.categories().slug(slug|literal).one() %}
+              {% set myEntryQuery = craft.entries().section('events').relatedTo(category).orderBy('startingDate asc') %}
+            {% else %}
+              {% set myEntryQuery = craft.entries().section('events').orderBy('startingDate asc') %}
+            {% endif %}
+            {% set entries = myEntryQuery.all() %}
+            {% if entries|length == 0 %}
+              <h3>NOPE, nothing for you here.</h3>
+            {% endif %}
+            {% set displayDate = false %}
+            {% for entry in entries %}
+              {% set startDate = entry.startingDate|date("F Y") %}
+              {% if startDate != displayDate %}
+                <h2 class="calendar-month-date">{{ startDate }}</h2>
+                {% set displayDate = startDate %}
+              {% endif %}
+                <article class="entry-event">
+                  <div class="entry-short-date">
+                    {{ entry.startingDate|date("M") }}
+                    <strong>
+                      {{ entry.startingDate|date("d")}}
+                    </strong>
+                  </div>
+                  <div class="entry-fuck-you-wrapper">
+                    <h3>{{ entry.title }}</h3>
+                    {% if entry.eventTopic == true %}<h4>Thema: {{ entry.eventTopic }}</h4>{% endif %}
+                    {% if entry.eventOfficial == true %}<span class="calendar-official-date">offiziell</span>{% endif %}
+                    <div class="entry-event-time">
+                      {{ entry.startingDate|date("l, j. F Y, H:i") }} -&nbsp;
+                      {%- if entry.startingDate|date("dMY") == entry.endingDate|date("dMY") -%}
+                        {{ entry.endingDate|date("H:i") }}
+                      {%- else -%}
+                        <br>{{ entry.endingDate|date("l, j. F Y, H:i") }}
+                      {%- endif -%}
+                    </div>
+                  </div>
+                  <div class="entry-event-location-detail">
+                    {{ entry.eventLocation }}<br>
+                    <small>
+                      {{ entry.eventLocationDetail }}
+                    </small>
+                  </div>
+                </article>
+            {% endfor %}
+      </main>
+    </section>
+    <footer class="side-nav-footer">
+      <a href="#">Impressum</a>
+      <a href="#">Datenschutz</a>
+    </footer>
+    <script src="{{siteUrl}}resources/scripts/index.js"></script>
+    <script src="{{siteUrl}}resources/dist/bundle.js"></script>
+    {% if craft.app.config.general.devMode %}
+    <script src="http://localhost:35729/livereload.js"></script>
+    {% endif %}
+   </body>
+  </html>

@@ -1,3 +1,16 @@
+categoryGroups:
+  38ad9c30-b716-477a-927d-47778fa7d6ea:
+    handle: meetingCategories
+    name: meeting-categories
+    siteSettings:
+      efb6198e-3252-491a-ab9e-aaa06ec3507f:
+        hasUrls: true
+        template: ''
+        uriFormat: 'meeting-categories/{slug}'
+    structure:
+      maxLevels: null
+      uid: e94362fb-4a93-47e8-818c-1078da4adfd7
+dateModified: 1561927575
 email:
   fromEmail: ddd@dkghjakdfdkjshrfoiaregjh.com
   fromName: 'Fema Web'
@@ -5,12 +18,210 @@ email:
 fieldGroups:
   68447509-7981-42c5-97a2-e47a0294d201:
     name: Common
+fields:
+  490bbfa8-4e9f-4b5f-b138-bb2007eaff91:
+    contentColumnType: string
+    fieldGroup: 68447509-7981-42c5-97a2-e47a0294d201
+    handle: eventLink
+    instructions: ''
+    name: event-link
+    searchable: true
+    settings:
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+  5038343d-9201-404d-944c-530d6747b5f1:
+    contentColumnType: string
+    fieldGroup: 68447509-7981-42c5-97a2-e47a0294d201
+    handle: eventCategory
+    instructions: ''
+    name: event-category
+    searchable: true
+    settings:
+      branchLimit: ''
+      limit: null
+      localizeRelations: false
+      selectionLabel: ''
+      source: 'group:38ad9c30-b716-477a-927d-47778fa7d6ea'
+      sources: '*'
+      targetSiteId: null
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Categories
+  6218b777-01ff-4426-b389-4cf7780dfa68:
+    name: ending-date
+    handle: endingDate
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Date
+    settings:
+      showDate: true
+      showTime: true
+      minuteIncrement: '30'
+    contentColumnType: datetime
+    fieldGroup: 68447509-7981-42c5-97a2-e47a0294d201
+  87d3d468-e9ff-4930-9851-756189791222:
+    name: starting-date
+    handle: startingDate
+    instructions: ''
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\Date
+    settings:
+      showDate: true
+      showTime: true
+      minuteIncrement: '15'
+    contentColumnType: datetime
+    fieldGroup: 68447509-7981-42c5-97a2-e47a0294d201
+  892ca179-d5f3-4aa8-83cf-d455f4699fa1:
+    contentColumnType: text
+    fieldGroup: 68447509-7981-42c5-97a2-e47a0294d201
+    handle: eventLocation
+    instructions: ''
+    name: event-location
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  bec63f28-c9bd-4437-8179-ba1bea725394:
+    contentColumnType: text
+    fieldGroup: 68447509-7981-42c5-97a2-e47a0294d201
+    handle: eventLocationDetail
+    instructions: ''
+    name: event-location-detail
+    searchable: true
+    settings:
+      charLimit: ''
+      code: ''
+      columnType: text
+      initialRows: '4'
+      multiline: ''
+      placeholder: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  d9f77168-99bb-434e-aa75-1c5f42b7bf81:
+    contentColumnType: boolean
+    fieldGroup: 68447509-7981-42c5-97a2-e47a0294d201
+    handle: eventOfficial
+    instructions: ''
+    name: event-official
+    searchable: true
+    settings:
+      default: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  9c05e543-e70f-42e0-8d77-2588af0098d9:
+    name: event-topic
+    handle: eventTopic
+    instructions: 'Besonderes Thema der Veranstaltung'
+    searchable: true
+    translationMethod: none
+    translationKeyFormat: null
+    type: craft\fields\PlainText
+    settings:
+      placeholder: ''
+      code: ''
+      multiline: ''
+      initialRows: '4'
+      charLimit: '100'
+      columnType: text
+    contentColumnType: text
+    fieldGroup: 68447509-7981-42c5-97a2-e47a0294d201
+plugins:
+  dolphiq-craft3-locationpicker:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+routes:
+  4d26d9ed-1140-446b-9229-b3863a6b01c3:
+    siteUid: null
+    sortOrder: 1
+    template: home.html
+    uriPattern: ''
+    uriParts:
+      - /
+  92532069-03b9-4eed-ae7a-7bfd732e3c77:
+    siteUid: null
+    sortOrder: 2
+    template: home.html
+    uriParts:
+      - /category/
+      -
+        - slug
+        - '[^\/]+'
+    uriPattern: '/category/<slug:[^\/]+>'
+sections:
+  2fa565c0-e8b6-4cb1-b4c5-bc60ea7c07dc:
+    enableVersioning: true
+    entryTypes:
+      13a56625-5f3a-4cd2-a6f4-87083ee2c6bb:
+        name: events
+        handle: events
+        hasTitleField: true
+        titleLabel: 'Name des Events'
+        titleFormat: ''
+        sortOrder: 1
+        fieldLayouts:
+          f855cded-7aee-4a3f-b46f-8148e667bac0:
+            tabs:
+              -
+                name: Common
+                sortOrder: 1
+                fields:
+                  9c05e543-e70f-42e0-8d77-2588af0098d9:
+                    required: false
+                    sortOrder: 1
+                  d9f77168-99bb-434e-aa75-1c5f42b7bf81:
+                    required: false
+                    sortOrder: 2
+                  490bbfa8-4e9f-4b5f-b138-bb2007eaff91:
+                    required: false
+                    sortOrder: 3
+                  892ca179-d5f3-4aa8-83cf-d455f4699fa1:
+                    required: false
+                    sortOrder: 4
+                  bec63f28-c9bd-4437-8179-ba1bea725394:
+                    required: false
+                    sortOrder: 5
+                  87d3d468-e9ff-4930-9851-756189791222:
+                    required: false
+                    sortOrder: 6
+                  6218b777-01ff-4426-b389-4cf7780dfa68:
+                    required: false
+                    sortOrder: 7
+                  5038343d-9201-404d-944c-530d6747b5f1:
+                    required: false
+                    sortOrder: 8
+    handle: events
+    name: events
+    propagateEntries: true
+    siteSettings:
+      efb6198e-3252-491a-ab9e-aaa06ec3507f:
+        enabledByDefault: true
+        hasUrls: true
+        template: ''
+        uriFormat: 'events/{slug}'
+    type: channel
 siteGroups:
   d7a3e58e-47ea-4105-bf13-5a636404ecd9:
     name: 'Fema Web'
 sites:
   efb6198e-3252-491a-ab9e-aaa06ec3507f:
-    baseUrl: $DEFAULT_SITE_URL
+    baseUrl: '@web'
     handle: default
     hasUrls: true
     language: de
@@ -22,7 +233,7 @@ system:
   edition: solo
   live: true
   name: 'Fema Web'
-  schemaVersion: 3.1.23
+  schemaVersion: 3.1.26
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false

@@ -1,13 +1,247 @@
 @import 'node_modules/jeet/jeet'
 @import '_mysettings.scss'
 
+$lightGrey: #E0E0E0
+$mediumGrey1: #767676
+$mediumGrey2: #777777
+
 +debug()
 
 section
   +center()
+  margin-top: 57px
 
 aside
-  +column(2/3)
+  +media("all and (max-width: 900px)")
+    +stack()
+  width: (1 / 3.3) * 800px
+  position: fixed
+  margin-left: 0
 
-article
+main
+  +column(2/3)
+  +media("all and (max-width: 900px)")
+    +stack()
+  overflow: hidden
+
+footer
+  +center()
   +column(1/3)
+  +media("all and (max-width: 900px)")
+    +stack()
+
+.logo-replacement
+  width: 136px
+  height: 136px
+  background: url('/resources/images/fema-logo.png')
+  background-size: 136px
+  text-indent: 100%
+  white-space: nowrap
+  overflow: hidden
+h1
+  display: block
+  margin: 0 auto
+
+.calendar-heading
+  font-size: 21px
+  display: block
+  margin: 0
+
+.navigation-categories-headline
+  font-size: 14px
+  margin: 0
+    top: 62px
+
+.calender a::after
+  border-bottom: 1px solid $lightGrey
+
+.side-nav-main-navigation
+  padding: 0
+    top: 50px
+    bottom: 50px
+  width: 100%
+  list-style-type: none
+  text-align: center
+  li a
+    color: #242424
+    border-radius: 8px
+    padding: 9px 32px 4px 32px
+    text-decoration: none
+    font-size: 17px
+    line-height: 2
+    &:hover
+      color: white
+      background-color: #242424
+      border-radius: 8px
+
+.side-nav-footer
+  position: fixed
+  left: 50%
+  bottom: 0
+  max-width: 180px
+  margin-left: -400px
+  padding: 20px
+    left: 42px
+  a
+    text-decoration: none
+    font-size: 14px
+    color: $mediumGrey2
+    margin-right: 12px
+
+.categories-navigation
+  padding: 0
+  li
+    list-style-type: none
+    display: inline-block
+    border-radius: 4px
+    color: #4C4C4C
+    background-color: #D1D1D1
+    padding: 5px 10px
+    margin: 0
+      top: -5px
+      bottom: 15px
+      right: 10px
+    a
+      text-decoration: none
+      color: inherit
+    &.active
+      background-color: #232323 /* admin is illuminati confirmed */
+      color: white
+    &:last-child
+      margin-bottom: 15px
+
+.calendar-headline
+  display: block
+
+.calendar-month-date
+  font-size: 16px
+  font-weight: normal
+  position: relative
+  margin: 0
+  &:after
+    content: ''
+    display: block
+    position: absolute
+    top: 50%
+    left: 100%
+    margin-left: 12px
+    border-bottom: 1px solid $lightGrey
+    margin-top: 0
+    width: 100vh
+
+.calendar-official-date
+  background-color: #232323
+  text-transform: uppercase
+  font-size: 10px
+  border-radius: 4px
+  color: white
+  padding: 3px 9px 2px 9px
+
+.entry-short-date
+  float: left
+  text-align: center
+  padding: (2px + 24px) 15px 15px 15px
+  text-transform: uppercase
+  strong
+    display: block
+    font-size: 23px
+
+.entry-fuck-you-wrapper
+  float: left
+  max-width: 50%
+  h3
+    font-size: 16px
+    font-weight: normal
+    margin: 0
+      top: (0px + 24px)
+      bottom: 4px
+  h4
+    font-weight: normal
+    font-size: 14px
+    display: block
+    margin: 0
+      top: -2px
+      bottom: 8px
+
+.entry-event-location-detail
+  float: right
+  font-size: 16px
+  margin: 0px
+    top: (0 + 24px)
+    right: 5px
+  small
+    display: block
+    font-size: 16px
+    color: $mediumGrey1
+    text-align: right
+    margin-top: 3px
+
+.entry-event
+  margin-bottom: 16px
+  &::after
+    content: ""
+    clear: both
+    display: table
+
+.entry-event-time
+  font-size: 16px
+  color: $mediumGrey1
+  // margin-top: -10px
+
+.entry-event+.entry-event
+  position: relative
+  &:before
+    content: ''
+    position: absolute
+    top: 0
+    left: 6px
+    right: 0px
+    border-top: 1px solid $lightGrey
+
+.side-short-info
+  border: 2px solid
+  border-radius: 8px
+  padding: 10px
+    bottom: 15px
+  max-width: 60%
+  margin: auto
+  h2
+    font-size: 12px
+    padding: 5px
+    margin-block-start: 0
+    margin: 0
+
+.side-nav
+  margin: auto
+  // background: #C7EA46
+
+.side-short-info-date
+  padding: 3px 8px 0px 4px
+  text-align: center
+  text-transform: uppercase
+  float: left
+  font-size: 10px
+  strong
+    display: block
+    font-size: 21px
+    margin-top: 1px
+
+.side-short-info-time
+  font-size: 10px
+  color: $mediumGrey2
+
+.side-short-info-location
+  font-size: 10px
+  color: $mediumGrey2
+
+.side-short-info-details
+  margin-top: 10px
+  clear: left
+  h4
+    font-size: 14px
+    font-weight: normal
+    margin: 0
+  &:after
+    content: ""
+    clear: both
+    display: table
