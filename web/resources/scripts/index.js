@@ -1,13 +1,37 @@
-// JS media query stuff for sidenavigation/drop down in mobile view
+document.addEventListener('DOMContentLoaded', (event) => {
+  const insert = document.querySelector('.side-nav-mobile-dropdown')
+  const dropdown = document.querySelector('.side-nav-main-navigation')
+  const heightContainer = document.querySelector('.side-nav-mobile-wrapper')
 
-// function myFunction(x) {
-//   if (x.matches) { // If media query matches
-//     document.body.style.backgroundColor = "yellow";
-//   } else {
-//     document.body.style.backgroundColor = "pink";
-//   }
-// }
+  let open = false
+  insert.addEventListener('click', () => {
+    if (open) {
+      heightContainer.style.height = 0 + 'px'
+      insert.classList.remove('side-mobile-open')
+      open = false
+    } else {
+      const targetHeight = dropdown.offsetHeight
+      heightContainer.style.height = targetHeight + 'px'
+      insert.classList.add('side-mobile-open')
+      open = true
+    }
+  })
 
-// var x = window.matchMedia("(max-width: 700px)")
-// myFunction(x) // Call listener function at run time
-// // x.addListener(myFunction) // Attach listener function on state changes
+  const foot = document.querySelector('footer')
+  const sideNavInfo = document.querySelector('.side-short-info')
+  const bla = document.querySelector('.side-nav-footer-links')
+  const sideNav = sideNavInfo.parentNode
+
+  const mq = window.matchMedia('(max-width: 900px)')
+
+  const mediaQueryHandler = (mq) => {
+    if (mq.matches) {
+      foot.insertBefore(sideNavInfo, bla)
+    } else {
+      sideNav.appendChild(sideNavInfo)
+    }
+  }
+
+  mq.addListener(mediaQueryHandler)
+  mediaQueryHandler(mq)
+})

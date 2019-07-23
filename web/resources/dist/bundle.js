@@ -75,17 +75,40 @@ module.exports = __webpack_require__(2);
 /* 1 */
 /***/ (function(module, exports) {
 
-// JS media query stuff for sidenavigation/drop down in mobile view
-// function myFunction(x) {
-//   if (x.matches) { // If media query matches
-//     document.body.style.backgroundColor = "yellow";
-//   } else {
-//     document.body.style.backgroundColor = "pink";
-//   }
-// }
-// var x = window.matchMedia("(max-width: 700px)")
-// myFunction(x) // Call listener function at run time
-// // x.addListener(myFunction) // Attach listener function on state changes
+document.addEventListener('DOMContentLoaded', function (event) {
+  var insert = document.querySelector('.side-nav-mobile-dropdown');
+  var dropdown = document.querySelector('.side-nav-main-navigation');
+  var heightContainer = document.querySelector('.side-nav-mobile-wrapper');
+  var open = false;
+  insert.addEventListener('click', function () {
+    if (open) {
+      heightContainer.style.height = 0 + 'px';
+      insert.classList.remove('side-mobile-open');
+      open = false;
+    } else {
+      var targetHeight = dropdown.offsetHeight;
+      heightContainer.style.height = targetHeight + 'px';
+      insert.classList.add('side-mobile-open');
+      open = true;
+    }
+  });
+  var foot = document.querySelector('footer');
+  var sideNavInfo = document.querySelector('.side-short-info');
+  var bla = document.querySelector('.side-nav-footer-links');
+  var sideNav = sideNavInfo.parentNode;
+  var mq = window.matchMedia('(max-width: 900px)');
+
+  var mediaQueryHandler = function mediaQueryHandler(mq) {
+    if (mq.matches) {
+      foot.insertBefore(sideNavInfo, bla);
+    } else {
+      sideNav.appendChild(sideNavInfo);
+    }
+  };
+
+  mq.addListener(mediaQueryHandler);
+  mediaQueryHandler(mq);
+});
 
 /***/ }),
 /* 2 */

@@ -438,11 +438,17 @@ section {
   margin-left: auto;
   padding-left: 0;
   padding-right: 0;
-  margin-top: 57px; }
+  margin-top: 57px;
+  padding: 0;
+    padding-left: 20px;
+    padding-right: 20px; }
   section::after {
     content: '';
     display: table;
     clear: both; }
+  @media all and (max-width: 900px) {
+    section {
+      margin-top: 22px; } }
 
 aside {
   width: 242.42424px;
@@ -455,7 +461,8 @@ aside {
       float: none;
       width: 100%;
       margin-left: auto;
-      margin-right: auto; }
+      margin-right: auto;
+      position: static; }
       aside:first-child {
         margin-right: auto; }
       aside:last-child {
@@ -533,26 +540,41 @@ footer {
   background-size: 136px;
   text-indent: 100%;
   white-space: nowrap;
-  overflow: hidden; }
-
-h1 {
+  overflow: hidden;
   display: block;
   margin: 0 auto; }
+  @media all and (max-width: 900px) {
+    .logo-replacement {
+      width: 148px;
+      height: 46px;
+      background: url("/resources/images/fema-logo-mobile.png") !important;
+      background-size: 148px;
+      text-indent: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      margin-bottom: 20px; } }
 
 .calendar-heading {
   font-size: 21px;
   display: block;
   margin: 0; }
+  @media all and (max-width: 900px) {
+    .calendar-heading {
+      display: none; } }
 
 .navigation-categories-headline {
   font-size: 14px;
   margin: 0;
     margin-top: 62px; }
+  @media all and (max-width: 900px) {
+    .navigation-categories-headline {
+      margin-top: 40px; } }
 
 .calender a::after {
   border-bottom: 1px solid #E0E0E0; }
 
 .side-nav-main-navigation {
+  margin: 0;
   padding: 0;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -570,6 +592,55 @@ h1 {
       color: white;
       background-color: #242424;
       border-radius: 8px; }
+    @media all and (max-width: 900px) {
+      .side-nav-main-navigation li a {
+        margin: 0; } }
+  @media all and (max-width: 900px) {
+    .side-nav-main-navigation {
+      padding: 0;
+        padding-bottom: 20px; } }
+
+.side-nav-mobile-dropdown {
+  display: none; }
+  @media all and (max-width: 900px) {
+    .side-nav-mobile-dropdown {
+      text-align: left;
+      background: #232323;
+      color: white;
+      font-size: 17px;
+      border: none;
+      display: block;
+      border-radius: 8px;
+      padding: 10px;
+        padding-left: 14px;
+        padding-bottom: 6px;
+      margin: 10px;
+        margin-left: 0px;
+      width: 100%; }
+      .side-nav-mobile-dropdown:after {
+        content: '';
+        display: inline-block;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAASVJREFUSA1jYBgFIy4EGKngY5xm+AENfw3EjhRY4gLU+waIfdHNcAUK/Abi/0D8HYg9gJhU4APU8AOIQWb8AmInIIYDQyDrHRCDJGEKAuGyhBkhQCUwB4L0g3yhh64NJPAKiGGW/AGyo9AVYeHHAsX+AjFM3wsgWweLOrCQBpB8CsQwxf+A7BSwDHYiDSgMUgNT/xjIVsOuFCGqDGQ+AGKYJhCdB8TooAAogKzmLpCvgK4IF18WKHELiJENqEBSXIUmdx3Il0aSJ4opAVR1BYiRLWkG8lvQxC4C+WJATBYQAeo6C8TIliCzTwHlhMgyGUmTAJB9HIiRDQaxDwMxHxBTBfACTdkPxDBL9gDZ3FQxGckQLiB7KxBvAmIOJPFR5mgI0DgEANETUVygJBQfAAAAAElFTkSuQmCC");
+        background-repeat: no-repeat;
+        float: right;
+        margin-right: 4px;
+          margin-right-bottom: 0px;
+        width: 14px;
+        height: 14px;
+        background-size: 14px;
+        filter: invert(1);
+        transition: 300ms linear; } }
+  .side-nav-mobile-dropdown.side-mobile-open:after {
+    transform: rotate(-180deg); }
+
+.side-nav-mobile-wrapper {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  transition: height 550ms ease-out; }
+  @media all and (min-width: 900px) {
+    .side-nav-mobile-wrapper {
+      height: auto !important; } }
 
 .side-nav-footer {
   position: fixed;
@@ -584,6 +655,24 @@ h1 {
     font-size: 14px;
     color: #777777;
     margin-right: 12px; }
+  @media all and (max-width: 900px) {
+    .side-nav-footer {
+      position: static;
+      padding: 0;
+      margin: 0;
+      max-width: 100%; } }
+
+.side-nav-footer-links {
+  padding: 0;
+  margin: 0;
+  text-align: center; }
+  .side-nav-footer-links li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0 auto;
+    margin: 0;
+      margin-top: 35px;
+      margin-bottom: 5px; }
 
 .categories-navigation {
   padding: 0; }
@@ -707,6 +796,13 @@ h1 {
     -webkit-margin-before: 0;
             margin-block-start: 0;
     margin: 0; }
+  @media all and (max-width: 900px) {
+    .side-short-info {
+      width: 100%;
+      margin-top: 50px;
+      padding: 10px;
+        padding-left: 20px;
+        padding-bottom: 15px; } }
 
 .side-nav {
   margin: auto; }

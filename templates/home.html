@@ -18,11 +18,14 @@
       <aside>
         <nav class="side-nav">
             <h1 class="logo-replacement">FemA Hamburg</h1>
-            <ul class="side-nav-main-navigation">
-              <li><a href="#">Terminkalender</a></li>
-              <li><a href="#">Literaturliste</a></li>
-              <li><a href="#">Über uns</a></li>
-            </ul>
+            <button class="side-nav-mobile-dropdown">Terminkalender</button>
+            <div class="side-nav-mobile-wrapper">
+              <ul class="side-nav-main-navigation">
+                <li><a href="#">Terminkalender</a></li>
+                <li><a href="#">Literaturliste</a></li>
+                <li><a href="#">Über uns</a></li>
+              </ul>
+            </div>
             <div class="side-short-info">
               <h2>Wichtige Termine</h2>
               {% set myEntryQuery = craft.entries.section('events').orderBy('startingDate asc') %}
@@ -116,10 +119,11 @@
       </main>
     </section>
     <footer class="side-nav-footer">
-      <a href="#">Impressum</a>
-      <a href="#">Datenschutz</a>
+      <ul class="side-nav-footer-links">
+        <li><a href="#">Impressum</a></li>
+        <li><a href="#">Datenschutz</a></li>
+      </ul>
     </footer>
-    <script src="{{siteUrl}}resources/scripts/index.js"></script>
     <script src="{{siteUrl}}resources/dist/bundle.js"></script>
     {% if craft.app.config.general.devMode %}
     <script src="http://localhost:35729/livereload.js"></script>
